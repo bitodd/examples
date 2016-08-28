@@ -18,6 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\commondef.h" />
+    <ClInclude Include="src\executor.h" />
+    <ClInclude Include="src\filesystem.h" />
+    <ClInclude Include="src\transferjson.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\executor.cpp" />
+    <ClCompile Include="src\filesystemcpp.cpp" />
+    <ClCompile Include="src\gatherexamples.cpp" />
+    <ClCompile Include="src\transferjson.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\test.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AED2D52C-39EE-4B56-8655-964F031D43CF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -88,10 +103,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lib\json\json.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRTD.lib;MSVCP140D.dll;msvcprtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,16 +160,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="executor.cpp" />
-    <ClCompile Include="filesystemcpp.cpp" />
-    <ClCompile Include="gatherexamples.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="commondef.h" />
-    <ClInclude Include="executor.h" />
-    <ClInclude Include="filesystem.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
