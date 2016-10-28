@@ -31,6 +31,7 @@ public:
 protected:
   //detail example
   void do_filesystem();
+  void do_nestedstruct();
 
 private:
 };

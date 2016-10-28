@@ -1,11 +1,13 @@
 #include "executor.h"
 #include "filesystem.h"
 #include "transferjson.h"
+#include "nestedstruct.h"
 
 #include "commondef.h"
 
 #include "string"
 #include "iostream"
+#include "memory.h"
 using namespace std;
 
 #ifdef WIN32
@@ -26,6 +28,7 @@ void ExecuteExamples::showAllExamples()
   cout << "----------------------all the examples--------------------------" << endl;
   cout << "------------------------1.filesystem----------------------------" << endl;
   cout << "------------------------2.json and string-----------------------" << endl;
+  cout << "------------------------3.show nestedstruct---------------------" << endl;
   cout << "---------------Please select which example to show----------------" << endl;
   int number;
   cin >> number;
@@ -56,6 +59,9 @@ void ExecuteExamples::do_examples(int sequence)
   case 2:
     transferToJson();
     break;
+  case 3:
+    do_nestedstruct();
+
   default:
     break;
   }
@@ -68,6 +74,8 @@ void ExecuteExamples::do_filesystem()
   cout << "first line of data:" << endl << singlecontent << endl;
   std::string allcontent = fs->getFileContent(FILE_PATH);
   cout << "all content:" << endl << allcontent << endl;
+  delete fs;
+  fs = nullptr;
   return;
 }
 void ExecuteExamples::transferToJson()
@@ -79,4 +87,15 @@ void ExecuteExamples::transferToJson()
   value = ts->StrToJson(test_str);
   cout << "json-------->string" << endl;
   ts->JsonToStr(value);
+
+  delete ts;
+  ts = nullptr;
+}
+
+void ExecuteExamples::do_nestedstruct()
+{
+  NestedStruct* ns = new NestedStruct;
+  ns->showStructData();
+  delete ns;
+  ns = nullptr;
 }

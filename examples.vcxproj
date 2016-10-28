@@ -22,12 +22,14 @@
     <ClInclude Include="src\commondef.h" />
     <ClInclude Include="src\executor.h" />
     <ClInclude Include="src\filesystem.h" />
+    <ClInclude Include="src\nestedstruct.h" />
     <ClInclude Include="src\transferjson.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\executor.cpp" />
     <ClCompile Include="src\filesystemcpp.cpp" />
     <ClCompile Include="src\gatherexamples.cpp" />
+    <ClCompile Include="src\NestedStruct.cpp" />
     <ClCompile Include="src\transferjson.cpp" />
   </ItemGroup>
   <ItemGroup>
