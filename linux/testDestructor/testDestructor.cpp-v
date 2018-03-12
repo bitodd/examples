@@ -1,0 +1,32 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+#include <thread>
+
+
+class TestA {
+public:
+    TestA() {}
+    ~TestA() {
+        cout<<"~testA and std thread id: "<< std::this_thread::get_id()<<endl;
+    }
+public:
+    void release() {
+       cout<<"release and std thread id: "<< std::this_thread::get_id()<<endl;
+       //delete this;
+       cout<<"release end"<<endl;
+
+    }
+    void runThread() { m_thread = std::thread(&Class::release, this); }
+private:
+    std::thread m_thread;
+};
+
+
+
+int main() {
+    TestA* test = new TestA;
+    test.runThread();
+    return 0;
+}
