@@ -1,5 +1,5 @@
 demo : test.o
-	gcc -o demo test.o -I. -L. -lagorasdk
+	gcc -o demo test.o -L. -lagorasdk
 test.o : test.c
 	gcc -c test.c -I.
 clean :
