@@ -16,7 +16,7 @@ INCPATH =-I. -I${TOPDIR}/include -I${COMMONPATH}
 
 SRC =$(wildcard ../base/*.cpp ../agorasdk/*.cpp *.cpp)
 OBJ=$(addsuffix .o, $(basename $(SRC)))
-TARGET=test
+TARGET=leftest
 
 
 .PHONY: all clean
