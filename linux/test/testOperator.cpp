@@ -2,8 +2,6 @@
 #include <string>
 
 using namespace std;
-
-
 class IRtcEngineParameter
 {
 public:
@@ -28,7 +26,10 @@ public:
         if (ptr_)
             ptr_->release();
     }
-    operator bool() const { return ptr_ != (pointer_type)0; }
+    operator bool() const { 
+        cout<<"operator bool() const"<<endl;
+        return ptr_ != (pointer_type)0;
+    }
     value_type& operator*() const {
         return *get();
     }
@@ -46,8 +47,11 @@ public:
         ptr_ = 0;
         return tmp;
     }
-
+    void reset2(){
+        cout<<"reset2"<<endl;
+    }
     void reset(pointer_type ptr = 0) {
+        cout<<"Autor ptr reset"<<endl;
         if (ptr != ptr_ && ptr_)
             ptr_->release();
         ptr_ = ptr;
@@ -67,34 +71,63 @@ private:
 private:
     pointer_type ptr_;
 };
-
 class AParameter : public AutoPtr<IRtcEngineParameter>
 {
 public:
-    AParameter(IRtcEngine& engine) { initialize(&engine); }
-    AParameter(IRtcEngine* engine) { initialize(engine); }
-    AParameter(IRtcEngineParameter* p) :AutoPtr<IRtcEngineParameter>(p) {}
+    AParameter(IRtcEngine& engine) {
+        cout<<"IRtcEngine& engine"<<endl;    
+        initialize(&engine);
+    }
+    AParameter(IRtcEngine* engine) {
+        cout<<"IRtcEngine* engine"<<endl;    
+        initialize(engine); 
+    }
+    AParameter(IRtcEngineParameter* p) :AutoPtr<IRtcEngineParameter>(p) {
+        cout<<"IRtcEngineParameter* p"<<endl;
+    }
 private:
     bool initialize(IRtcEngine* engine)
     {
+        cout<<"AParameter initialize"<<endl;
         IRtcEngineParameter* p = NULL;
-        //if (engine && !engine->queryInterface(AGORA_IID_RTC_ENGINE_PARAMETER, (void**)&p))
+        //if (engine && !engine->queryInterface(0, (void**)&p))
             reset(p);
+            reset2();
         return p != NULL;
     }
 };
-
-
-class Base{
-    virtual void test(){
-        cout<<"parent test"<<endl;
+class B{
+public:
+    void f1(){
+        cout<<"B f1"<<endl;
+    }
+    bool operator ()(int) {
+        cout<<"bool operator!"<<endl;
+    }
+};
+class D : public B{
+public:
+    void f2(){
+        cout<<"D f2"<<endl;
     }
 };
 
-
 int main()
 {
-    IRtcEngineEx *applite_;
+#if 1
+    IRtcEngine *applite_;
     AParameter msp(*applite_);
+    return 0;
+    msp.reset2();
+    if(!msp)
+        cout<<"msp is null"<<endl;
+    cout<<"end"<<endl;
+#else
+    B b;
+    bool ret = b(5);
+    D d;
+    //d(10);
+    d.f1();
+#endif
 	return 0;
 }
