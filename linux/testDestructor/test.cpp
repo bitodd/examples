@@ -38,5 +38,8 @@ int main() {
     cout<<"a*(1/5):"<<a*(1/5)<<",a*(4/5):"<<a*(4/5)<<endl;
     cout<<"a*(0.2):"<<a*(0.2)<<",a*(0.8):"<<a*(0.8)<<endl;
     cout<<"a*(double(1/5)):"<<a*(double(1/5*1.0))<<",a*(double(4/5)):"<<a*(double(4/5*1.0))<<endl;
+
+    cout<<"test: 1.f/5:"<<1.f/5<<endl;
+    cout<<"test: 1.f * 1.0/5:"<<1.f * 1.0/5<<endl;
     return 0;
 }
