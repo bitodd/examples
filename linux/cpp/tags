@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AParameter	testOperator.cpp	/^    AParameter(IRtcEngine& engine) {$/;"	f	class:AParameter
+AParameter	testOperator.cpp	/^    AParameter(IRtcEngine* engine) {$/;"	f	class:AParameter
+AParameter	testOperator.cpp	/^    AParameter(IRtcEngineParameter* p) :AutoPtr<IRtcEngineParameter>(p) {$/;"	f	class:AParameter
+AParameter	testOperator.cpp	/^class AParameter : public AutoPtr<IRtcEngineParameter>$/;"	c	file:
+AutoPtr	testOperator.cpp	/^    AutoPtr(pointer_type p=0)$/;"	f	class:AutoPtr
+AutoPtr	testOperator.cpp	/^class AutoPtr {$/;"	c	file:
+B	testOperator.cpp	/^class B{$/;"	c	file:
+D	testOperator.cpp	/^class D : public B{$/;"	c	file:
+Distance	test.cpp	/^      Distance(){$/;"	f	class:Distance
+Distance	test.cpp	/^      Distance(int f, int i){$/;"	f	class:Distance
+Distance	test.cpp	/^class Distance$/;"	c	file:
+IRtcEngine	testOperator.cpp	/^class IRtcEngine$/;"	c	file:
+IRtcEngineParameter	testOperator.cpp	/^class IRtcEngineParameter$/;"	c	file:
+LDFLAGS	makefile	/^LDFLAGS=-Wl,-rpath,$(LIBPATH)$/;"	m
+LIBPATH	makefile	/^LIBPATH=${TOPDIR}$/;"	m
+LIBS	makefile	/^LIBS=-lpthread$/;"	m
+TARGET	makefile	/^TARGET=demo$/;"	m
+TOPDIR	makefile	/^TOPDIR=`pwd`$/;"	m
+broken	randomStatus.cpp	/^void broken()$/;"	f
+broken_status	randomStatus.cpp	/^bool broken_status = false;$/;"	v
+displayDistance	test.cpp	/^      void displayDistance()$/;"	f	class:Distance
+f1	testOperator.cpp	/^    void f1(){$/;"	f	class:B
+f2	testOperator.cpp	/^    void f2(){$/;"	f	class:D
+feet	test.cpp	/^      int feet;             \/\/ 0 到无穷$/;"	m	class:Distance	file:
+get	testOperator.cpp	/^    pointer_type get() const {$/;"	f	class:AutoPtr
+inches	test.cpp	/^      int inches;           \/\/ 0 到 12$/;"	m	class:Distance	file:
+initialize	testOperator.cpp	/^    bool initialize(IRtcEngine* engine)$/;"	f	class:AParameter	file:
+main	randomStatus.cpp	/^int main()$/;"	f
+main	test.cpp	/^int main()$/;"	f
+main	testOperator.cpp	/^int main()$/;"	f
+normal	randomStatus.cpp	/^void normal()$/;"	f
+operator ()	test.cpp	/^       bool operator ()(int a, int b, int c)$/;"	f	class:Distance
+operator ()	testOperator.cpp	/^    bool operator ()(int) {$/;"	f	class:B
+operator *	testOperator.cpp	/^    value_type& operator*() const {$/;"	f	class:AutoPtr
+operator ->	testOperator.cpp	/^    pointer_type operator->() const {$/;"	f	class:AutoPtr
+operator bool	testOperator.cpp	/^    operator bool() const { $/;"	f	class:AutoPtr
+pointer_type	testOperator.cpp	/^    typedef T* pointer_type;$/;"	t	class:AutoPtr	file:
+ptr_	testOperator.cpp	/^    pointer_type ptr_;$/;"	m	class:AutoPtr	file:
+queryInterface	testOperator.cpp	/^    bool queryInterface(C1* c, C2 iid) {$/;"	f	class:AutoPtr
+release	testOperator.cpp	/^    pointer_type release() {$/;"	f	class:AutoPtr
+reset	testOperator.cpp	/^    void reset(pointer_type ptr = 0) {$/;"	f	class:AutoPtr
+reset2	testOperator.cpp	/^    void reset2(){$/;"	f	class:AutoPtr
+value_type	testOperator.cpp	/^    typedef T value_type;$/;"	t	class:AutoPtr	file:
+~AutoPtr	testOperator.cpp	/^    ~AutoPtr() {$/;"	f	class:AutoPtr
