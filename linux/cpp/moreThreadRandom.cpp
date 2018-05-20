@@ -38,7 +38,7 @@ begin:
     struct timeval tv;
     gettimeofday(&tv, NULL);
     cout<<"tv.tv_sec*1000*1000 + tv.tv_usec+tid:"<<tv.tv_sec*1000*1000 + tv.tv_usec+tid<<endl;
-    //srand(tv.tv_sec*1000*1000 + tv.tv_usec);
+    srand(tv.tv_sec*1000*1000 + tv.tv_usec);
 #endif
 #if 0
     cout<<"tid:"<<tid<<endl;
