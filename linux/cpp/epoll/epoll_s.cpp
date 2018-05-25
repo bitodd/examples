@@ -235,8 +235,8 @@ void epoll_server::run(int time_out) {
 int main(int argc, char *argv[]) {
 
     epoll_server my_epoll;
-    my_epoll.init(12345, 10);
-    //my_epoll.init("127.0.0.1", 12345, 10);
+    //my_epoll.init(12345, 10);
+    my_epoll.init("127.0.0.1", 9000, 10);
 
     my_epoll.run(2000);
     return  0;
