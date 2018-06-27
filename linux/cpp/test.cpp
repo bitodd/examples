@@ -1,11 +1,19 @@
 #include <iostream>
+#include <memory>
 using namespace std;
- 
+class Distance;
+class A{
+    A(Distance& d){
+
+    }
+
+} ;
 class Distance
 {
    private:
-      int feet;             // 0 到无穷
-      int inches;           // 0 到 12
+      int feet;            
+      int inches;      
+      std::unique_ptr<A> a;
    public:
       // 所需的构造函数
       Distance(){

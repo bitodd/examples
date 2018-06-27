@@ -29,5 +29,6 @@ int main(int argc, char* argv[]) {
     int i = 0, j =0;
     int array[10] = {10,3,5,8,9,6,1,2,66,88};
     bubble_sort(array);
+    int asfasf;
     return 0;
 }
