@@ -41,6 +41,7 @@ class Distance
 };
 int main()
 {
+#if 0
    Distance D1(11, 10), D2;
  
    cout << "First Distance : "; 
@@ -49,6 +50,12 @@ int main()
    D1(10, 10, 10); // invoke operator()
    cout << "Second Distance :"; 
    D2.displayDistance();
- 
+#endif
+   int var = 2;
+   if(var){
+       cout<<"var:"<<var<<endl;
+   }
+
+   cout<<"var2:"<<var<<endl;
    return 0;
 }
