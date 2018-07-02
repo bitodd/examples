@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <stdio.h>
 
 struct menber
 {
@@ -8,9 +9,6 @@ struct menber
     char *s;
 };
 
-/*
- * 线程执行函数
- * */
 void *create(void *arg)
 {
     struct menber *temp;
@@ -20,21 +18,16 @@ void *create(void *arg)
     return (void *)0;
 }
 
-/*
- * 程序入口
- * */
 int main(int argc,char *argv[])
 {
     pthread_t tidp;
     int error;
     struct menber *b;
 
-	/*为结构体指针b分配内存并赋值*/
     b=(struct menber *)malloc( sizeof(struct menber) );
     b->a = 4;
     b->s = "zieckey";
     
-	/*创建线程并运行线程执行函数*/
     error = pthread_create(&tidp, NULL, create, (void *)b);
     if( error )
     {
@@ -42,8 +35,7 @@ int main(int argc,char *argv[])
         return -1;
     }
 
-    sleep(1); //进程睡眠一秒使线程执行完后进程才会结束
-
+    sleep(1); 
     printf("pthread is created...\n");
     return 0;
 }
