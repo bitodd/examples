@@ -3,20 +3,28 @@
 using namespace std;
 class Distance;
 class A{
-    A(Distance& d){
-
+    private:
+        int data;
+    public:
+    A(){
+        data = 10;
+    }
+    void test(){
+        cout<<"A::test"<<endl;
+        cout<<"data:"<<data<<endl;
     }
 
-} ;
+};
+
 class Distance
 {
    private:
       int feet;            
       int inches;      
-      std::unique_ptr<A> a;
+      std::unique_ptr<A> m_a;
    public:
       // 所需的构造函数
-      Distance(){
+      Distance() : m_a(nullptr){
          feet = 0;
          inches = 0;
       }
@@ -25,7 +33,8 @@ class Distance
          inches = i;
       }
       // 重载函数调用运算符
-       bool operator ()(int a, int b, int c)
+      
+      bool operator ()(int a, int b, int c)
       {
          Distance D;
          // 进行随机计算
@@ -35,7 +44,16 @@ class Distance
       // 显示距离的方法
       void displayDistance()
       {
-         cout << "F: " << feet <<  " I:" <<  inches << endl;
+          cout << "displayDistance"<<endl;
+         //cout << "F: " << feet <<  " I:" <<  inches << endl;
+      }
+      void init()
+      {
+#if 1
+          m_a.reset(new A);
+          m_a->test();
+#else 
+#endif
       }
       
 };
@@ -51,11 +69,7 @@ int main()
    cout << "Second Distance :"; 
    D2.displayDistance();
 #endif
-   int var = 2;
-   if(var){
-       cout<<"var:"<<var<<endl;
-   }
-
-   cout<<"var2:"<<var<<endl;
+   Distance* d = new Distance;
+   d->init();
    return 0;
 }
