@@ -29,6 +29,7 @@ int main(int argc, char* argv[]) {
     char* strSrc = const_cast<char*>("hello strcpy");
     cout<<mystrcpy(strDest, strSrc)<<endl;
     cout<<strcpy(strDest, strSrc)<<endl;
+    mystrcpy
     return 0;
 }
 

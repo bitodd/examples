@@ -1,6 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+
+void test(int a, int b);
 int func(int a, int b)
 {
     printf("\n var a:%d, b:%d\n", a, b);
