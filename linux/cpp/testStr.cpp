@@ -10,6 +10,8 @@ char* testChar(){
 int main(void) {
 
     char* ret = testChar();
+    char* tmp = NULL;
+    delete tmp;
     cout<<"ret:"<<ret<<endl;
     return 0;
 
