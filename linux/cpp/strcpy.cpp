@@ -18,6 +18,13 @@ char* mystrcpy(char* strDest, char* strSrc) {
 
 }
 
+void test()
+{
+    char s[]="123456789";
+    char d[]="123";
+    strcpy(d,s);
+    printf("d=%s,\ns=%s",d,s);
+}
 int main(int argc, char* argv[]) {
 #if 1
     char* strDest = new char[17];
@@ -25,11 +32,13 @@ int main(int argc, char* argv[]) {
 #else 
     array<char, 7> strDest{0};
 #endif
+#if defined atsfsaf
     cout<<"ret:"<<(strDest==NULL ? "true":"false")<<endl;
     char* strSrc = const_cast<char*>("hello strcpy");
     cout<<mystrcpy(strDest, strSrc)<<endl;
     cout<<strcpy(strDest, strSrc)<<endl;
-    mystrcpy
+#endif
+    test();
     return 0;
 }
 
