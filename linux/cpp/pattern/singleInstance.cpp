@@ -19,8 +19,9 @@ private:
     }
     int number;
     const SingleInstance& operator=(const SingleInstance& lrs);
+    SingleInstance(SingleInstance const &){}
 public:
-#if 0
+#if defined A 
     static SingleInstance* getInstance()
     {
         if(!m_instance)
@@ -36,11 +37,17 @@ public:
         }
         return m_instance;
     }
-#else
+#elif defined B
     static SingleInstance* getInstance()
     {
         static SingleInstance p;
         return &p;
+    }
+#else
+    static SingleInstance getInstance()
+    {
+        static SingleInstance p; 
+        return p;
     }
 #endif
 public:
@@ -64,10 +71,10 @@ SingleInstance* SingleInstance::m_instance = NULL;
 
 void run_instance(const int i)
 {
-#if 0
+#if defined A 
     SingleInstance* instance = SingleInstance::getInstance();
     instance->print();
-#else
+#elif defined B
     if(i>2) return;
     SingleInstance* instance = SingleInstance::getInstance();
     instance->setNumber(i);
@@ -80,6 +87,25 @@ void run_instance(const int i)
     
     instance->print();
     instance2->print();
+#else 
+    if(i>2) return;
+    //SingleInstance instance = SingleInstance::getInstance();//compile error
+#if 0
+    instance.setNumber(i);
+    cout<<"number is:"<<instance.getNumber()<<endl;
+
+    SingleInstance instance2 = SingleInstance::getInstance();
+    instance2.setNumber(i+1);
+    cout<<"number2 is:"<<instance2.getNumber()<<endl;
+    cout<<"number1 is:"<<instance.getNumber()<<endl;
+    
+    instance.print();
+    instance2.print();
+#endif
+    SingleInstance::getInstance().setNumber(i);
+    cout<<"number is:"<<SingleInstance::getInstance().getNumber()<<endl;
+    SingleInstance::getInstance().setNumber(i+1);
+    cout<<"number is2:"<<SingleInstance::getInstance().getNumber()<<endl;
 #endif
 }
 
