@@ -1,6 +1,18 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+static int add(int a, int b) {
+    printf("a:%d, b:%d", a, b);
+    return a+b;
+}
+
+typedef struct {
+    int (*add)(int a, int b);
+}Stru_t;
+
+static Stru_t stru = {
+    .add = add,
+};
 
 void test(int a, int b);
 int func(int a, int b)
@@ -19,5 +31,9 @@ int main(int argc, char* argv[]){
     MYFUNC myfun2;
     myfun2 = func;
     myfun2(13,14);
+
+    int sum = stru.add(1,2);
+    printf("sum:%d\n", sum);
+ 
     return 0;
 }
