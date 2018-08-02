@@ -10,9 +10,11 @@ typedef struct {
     int (*add)(int a, int b);
 }Stru_t;
 
+#if 1
 static Stru_t stru = {
     .add = add,
 };
+#endif
 
 void test(int a, int b);
 int func(int a, int b)
@@ -31,9 +33,9 @@ int main(int argc, char* argv[]){
     MYFUNC myfun2;
     myfun2 = func;
     myfun2(13,14);
-
+#if 1
     int sum = stru.add(1,2);
     printf("sum:%d\n", sum);
- 
+#endif
     return 0;
 }
